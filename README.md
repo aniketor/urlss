@@ -30,4 +30,3 @@ docker-compose up -d
 ###### TODO:
 
 * Add SSL for encryption and basic security
-* Add re-direct APIs
