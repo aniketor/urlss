@@ -1,0 +1,26 @@
+version: '3.2'
+services:
+  flashurl:
+    container_name: flashurl_service
+    command: "./flashurlapi.py"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "flashurl:1.0.0"
+    network_mode: "bridge"
+    ports:
+      - 6773:6773
+    #volumes:
+    #    - /opt:/opt
+    environment:
+      - API_SERVICE_PORT=6773
+      - RECORDS_FILE=/root/records.csv
+      - THREAD_COUNT=3
+      - DEBUG=False
+        #logging:
+        #driver: journald
+        #options:
+        #tag: flashurl-api
+    restart: always
+    tty: true
+
